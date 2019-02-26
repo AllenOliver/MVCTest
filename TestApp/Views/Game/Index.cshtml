@@ -1,0 +1,48 @@
+﻿@model List<TestApp.Models.Game>
+
+<style>
+    .col-lg-4 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<title>@ViewBag.Title</title>
+<h2>Games Page</h2>
+@*<h5>@ViewBag.Message</h5>
+    <ul>
+        @foreach (var g in Model)
+        {
+            <li>@g.GameID.) @g.GameName</li>
+        }
+    </ul>*@
+
+<div class="row">
+    @foreach (var g in Model)
+    {
+        <div class="col-lg-4">ID: @g.GameID | Name: @g.GameName</div>
+    }
+</div>
+<div class="row">
+    <a class="btn btn-danger" id="btn" onclick="Click();">Click this button!</a>
+</div>
+<div class="row">
+    <a class="btn btn-danger" id="btnZelda" onclick="@Html.Action("returnZelda");">Click to get zelda</a>
+</div>
+
+<script>
+    function Click() {
+        //$("#btn").prop("disabled", true);
+        alert("Pressed!");
+
+        @*$.ajax({
+            url: "@Html.Action("Index", "Game")",
+            data: {
+                //myString: ""
+            }
+            }).done(function() {
+                alert("Done!");
+            });
+
+        };*@
+</script>
